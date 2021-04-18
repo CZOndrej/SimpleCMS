@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Interfaces\" />
-    <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
 </Project>

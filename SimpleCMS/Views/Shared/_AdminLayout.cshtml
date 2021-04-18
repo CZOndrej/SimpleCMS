@@ -6,28 +6,47 @@
     <title>@ViewData["Title"] - SimpleCMS</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/admin.css" rel="stylesheet" />
 </head>
-<body class="container-fluid">
+<body>
+    <div class="wrapper">
+        <!------------- Sidebar ------------------>
+        <nav id="sidebar" class="bg-info">
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!------------------Main Content------------------->
+        <main class="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a asp-controller="Account" asp-action="SignOut"
+                   class="btn btn-info">Odhlásit se</a>
+            </nav>
+            
+            @RenderBody()
+        </main>
+    </div>
+   
+
     
-     <div class="col-2">
-         <a asp-controller="Account" asp-action="SignOut"
-            class="btn btn-info">Odhlásit se</a>
-     </div>
-
-     <div>
-         <main role="main" class="pb-3">
-             @RenderBody()
-         </main>
-     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - SimpleCMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>$(document).ready(function () {
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+
+        });</script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

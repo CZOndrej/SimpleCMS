@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SimpleCMS.Data.Repositories;
 using SimpleCMS.Models;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,15 @@ namespace SimpleCMS.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private readonly PageRepository _pageRepository;
 
-        public IActionResult Index()
+        public HomeController(PageRepository pageRepository)
         {
-            return View();
+            _pageRepository = pageRepository;
+        }
+        public IActionResult Index(int id = 0)
+        {
+            return View(_pageRepository.GetPageById(id));
         }
 
        

@@ -1,0 +1,8 @@
+﻿@model ICollection<Block>
+
+<section>
+    @foreach (Block block in Model)
+    {
+        await Html.RenderPartialAsync("~/Views/Cms/Block.cshtml", block);
+    }
+</section>

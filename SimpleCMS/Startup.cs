@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SimpleCMS.Data;
+using SimpleCMS.Data.Repositories;
 using SimpleCMS.Models;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,8 @@ namespace SimpleCMS
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(
                      Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<PageRepository, PageRepository>();
 
             services.AddIdentity<AppUser, IdentityRole>(options =>
             {
