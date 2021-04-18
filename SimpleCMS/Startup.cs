@@ -38,6 +38,9 @@ namespace SimpleCMS
             services.AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = false;
                 options.SignIn.RequireConfirmedEmail = false;
             })
 
