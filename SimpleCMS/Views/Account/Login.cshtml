@@ -18,15 +18,15 @@
     <form method="post" class="bg-white shadow-sm border-primary rounded-sm p-3">
         <div class="form-group">
             <label asp-for="UserName"></label>
-            <input asp-for="UserName" type="text" class="form-control" placeholder="Enter email">
+            <input asp-for="UserName" type="text" class="form-control" placeholder="User Name">
         </div>
         <div class="form-group">
             <label asp-for="Password"></label>
-            <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password">
         </div>
-        <div class="form-group">
-            <label asp-for="RememberMe"></label>
-            <input asp-for="RememberMe" type="checkbox" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="form-check justify-content-between">
+            <label asp-for="RememberMe" class="form-check-label"></label>
+            <input asp-for="RememberMe" type="checkbox" class="form-check-input">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
