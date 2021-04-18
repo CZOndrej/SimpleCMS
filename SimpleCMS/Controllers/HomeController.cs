@@ -18,9 +18,10 @@ namespace SimpleCMS.Controllers
         {
             _pageRepository = pageRepository;
         }
-        public IActionResult Index(int id = 0)
+        public IActionResult Index(string name)
         {
-            return View(_pageRepository.GetPageById(id));
+            
+            return View();
         }
 
        

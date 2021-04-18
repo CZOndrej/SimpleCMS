@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace SimpleCMS.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public Task<IActionResult> AddPage(Page page)
+        {
+
         }
     }
 }

@@ -27,6 +27,31 @@ namespace SimpleCMS.Data.Repositories
             return page;
         }
 
+        public ICollection<string> GetPageNames()
+        {
+            return _context.Pages.Select(x => x.NavName).ToList();
+        }
+
+        public Page GetPageByName(string name)
+        {
+            int id = Convert.ToInt32(_context.Pages.Where(p => p.NavName == name).Select(p => p.PageId));
+            return GetPageById(id);
+        }
+
+        public async void Create(string headLine, string navName, string subHeadLine, string imagePath = null)
+        {
+            Page page = new Page
+            {
+                Headline = headLine,
+                NavName = navName,
+                Subheadline = subHeadLine,
+                ImagePath = imagePath,
+                HasImage = imagePath == null ? false : true,
+                Sections = null,
+            };
+            await _context.AddAsync(page);
+            await _context.SaveChangesAsync();
+        }
 
     }
 }

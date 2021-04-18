@@ -19,5 +19,8 @@ namespace SimpleCMS.Models
         public bool HasImage { get; set; }
         public virtual ICollection<Section> Sections { get; set; }
         public string ImagePath { get; set; }
+        [Required]
+        [StringLength(50, ErrorMessage = "max 50 characters")]
+        public string NavName { get; set; }
     }
 }

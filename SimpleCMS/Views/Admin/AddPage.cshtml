@@ -1,0 +1,53 @@
+﻿@model SimpleCMS.Models.Page
+
+@{
+    ViewData["Title"] = "AddPage";
+}
+
+<h1>AddPage</h1>
+
+<h4>Page</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Headline" class="control-label"></label>
+                <input asp-for="Headline" class="form-control" />
+                <span asp-validation-for="Headline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subheadline" class="control-label"></label>
+                <input asp-for="Subheadline" class="form-control" />
+                <span asp-validation-for="Subheadline" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasImage" /> @Html.DisplayNameFor(model => model.HasImage)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label"></label>
+                <input asp-for="ImagePath" class="form-control" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NavName" class="control-label"></label>
+                <input asp-for="NavName" class="form-control" />
+                <span asp-validation-for="NavName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
