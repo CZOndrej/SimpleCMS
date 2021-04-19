@@ -6,7 +6,10 @@
     <title>@ViewData["Title"] - SimpleCMS</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link href="~/css/admin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    @RenderSection("head", required: false)
 </head>
 <body>
     <div class="wrapper">

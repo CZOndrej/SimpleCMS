@@ -22,5 +22,6 @@ namespace SimpleCMS.Models
         [Required]
         [StringLength(50, ErrorMessage = "max 50 characters")]
         public string NavName { get; set; }
+        public bool IsHomePage { get; set; }
     }
 }

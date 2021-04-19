@@ -20,7 +20,12 @@ namespace SimpleCMS.Controllers
         }
         public IActionResult Index(string name)
         {
-            
+            if (name != null)
+            {
+                Page page = _pageRepository.GetPageByName(name);
+                return View(page);
+
+            }
             return View();
         }
 

@@ -1,4 +1,10 @@
-﻿.wrapper {
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Open Sans'
+}
+
+.wrapper {
     display: flex;
 }
 
@@ -6,13 +12,18 @@
     min-height: 100vh;
     padding: 3em;
 }
-    #sidebar li {
-        margin-bottom: 1em;
-        border-bottom: 1px solid whitesmoke;
-    }
+#sidebar li {
+    margin-bottom: 1em;
+    border-bottom: 1px solid whitesmoke;
+}
 
 #sidebar a {
     color: whitesmoke;
+}
+
+.content {
+    padding: 2em;
+    width: 100%;
 }
 
    

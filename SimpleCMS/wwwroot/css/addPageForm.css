@@ -1,0 +1,19 @@
+
+
+.create-page {
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid rgb(152, 171, 255);
+    background-color: rgba(138, 159, 255, 0.158);
+    border-radius: .5em;
+    padding: 1.5em;
+    font-family: 'Open-Sans' !important;
+}
+.form-group, .form-check {
+    margin-bottom: 1em;
+}
+
+
+.submit-btn {
+    width: 300px;
+}

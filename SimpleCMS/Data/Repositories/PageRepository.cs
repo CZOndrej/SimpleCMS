@@ -18,11 +18,12 @@ namespace SimpleCMS.Data.Repositories
         public Page GetPageById(int id)
         {
             Page page = _context.Pages.SingleOrDefault(p => p.PageId == id);
-            _context.Entry(page).Collection(s => s.Sections).Load();
-            foreach (Section section in page.Sections)
-            {
-                _context.Entry(section).Collection(s => s.Blocks).Load();
-            }
+                _context.Entry(page).Collection(s => s.Sections).Load();
+                foreach (Section section in page.Sections)
+                {
+                    _context.Entry(section).Collection(s => s.Blocks).Load();
+                }
+            
 
             return page;
         }
@@ -34,11 +35,11 @@ namespace SimpleCMS.Data.Repositories
 
         public Page GetPageByName(string name)
         {
-            int id = Convert.ToInt32(_context.Pages.Where(p => p.NavName == name).Select(p => p.PageId));
+            int id = _context.Pages.Where(p => p.NavName == name).Select(p => p.PageId).SingleOrDefault();
             return GetPageById(id);
         }
 
-        public async void Create(string headLine, string navName, string subHeadLine, string imagePath = null)
+        public async Task<int> Create(string headLine, string navName, string subHeadLine, string imagePath = null)
         {
             Page page = new Page
             {
@@ -49,8 +50,8 @@ namespace SimpleCMS.Data.Repositories
                 HasImage = imagePath == null ? false : true,
                 Sections = null,
             };
-            await _context.AddAsync(page);
-            await _context.SaveChangesAsync();
+            await _context.Pages.AddAsync(page);
+            return await _context.SaveChangesAsync();
         }
 
     }
