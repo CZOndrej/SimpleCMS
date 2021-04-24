@@ -28,9 +28,9 @@ namespace SimpleCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPage(Page page)
+        public IActionResult AddPage(Page page)
         {
-            await _pageRepository.Create(page.Headline, page.NavName, page.Subheadline);
+            _pageRepository.Create(page.Headline, page.NavName, page.Subheadline);
 
             return View();
         }
